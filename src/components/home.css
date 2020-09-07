@@ -164,6 +164,9 @@
     background-color: #ffffff;
     border-right: 1px solid #adbece;
 }
+.fa-sign-out-alt{
+    color:#0578d6;
+}
 .corpo-right{
     position: fixed;
     width: 90vw;
@@ -178,11 +181,17 @@
 
 .listaPokemons{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: stretch;
+    flex-direction: row; */
     justify-content: center;
     align-items: center;
     transition: all .6s ease-in-out;
-    width: 100vw;
+    width: 90vw;
+    height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
 }
 
 .scroll { 
@@ -194,11 +203,24 @@
 } 
 
 .card-pokemon{
-    width: 18vw;
+    width: 17vw;
     height: 25vh;
     background-color: #ffffff;
     box-shadow: 0 0 10px #adbece;
     margin:10px;
     padding: 5px;
     border-radius: 7px;
+    /* float: left; */
+}
+
+.card-pokemon button{
+    margin-top: 2vh;
+    width: 17vw;
+    height: 4vh;
+    background-color: #0578d6;
+    color: #ffffff;
+    border-radius: 6px;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
 }

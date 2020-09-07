@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './home.css';
-import apiPokedex from '../apis/api-pokedex'
-import { logout } from "../auth/auth";
+import apiPokedex from '../apis/api-pokedex';
+import SideNav from './SideNav';
+
 
 class MyPokemons extends Component{
     state = {
@@ -13,9 +14,7 @@ class MyPokemons extends Component{
         this.setState({ pokemons: response.data.pokemons });
     }
 
-    handleLogout = () => {
-        logout();
-    } 
+  
 
     handlerDelete = async (id) => {
         try{
@@ -30,10 +29,10 @@ class MyPokemons extends Component{
         return(
             <div className='corpo-dashboard'>
                 <div className='side-nav'>
-                    <a href='#!' onClick={this.handleLogout}><i class="fas fa-sign-out-alt fa-3x"></i></a>
+                    <SideNav />
                 </div>
                 <div className='corpo-right'>
-                    <h1>Dashboard</h1>
+                    <h1>Minha Pokebola</h1>
                     <div className='listaPokemons'>
                         {console.log(pokemons)}
                         {pokemons.map((p) => 

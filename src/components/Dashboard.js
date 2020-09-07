@@ -32,7 +32,7 @@ class Dashboard extends Component{
     
     render(){
         const { pokemons } = this.state;
-        let types;
+        let uri;
         return(
             <div className='corpo-dashboard'>
                 <div className='side-nav'>
@@ -42,9 +42,13 @@ class Dashboard extends Component{
                 <div className='corpo-right'>
                     <h1>Área de Captura</h1>
                     <div className='listaPokemons'>
+                        {console.log(pokemons)}
                         {pokemons.map((p) => 
                             <div className='card-pokemon'>
                                 <h3>{p.Name}</h3>
+                                <div className='avatar-pokemon'>
+                                    <img src={`https://raw.githubusercontent.com/alexandreservian/react-table-example-pokemon/master/public/assets/thumbnails/${p.Number}.png`}/>
+                                </div>
                                 <p>Geração: {p.Generation}</p>
                                 <p>Tipo: {JSON.stringify(p.Types)}</p>
                                 <p>Quant.: {p['Base Attack']}</p>

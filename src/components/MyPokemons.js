@@ -6,7 +6,8 @@ import SideNav from './SideNav';
 
 class MyPokemons extends Component{
     state = {
-        pokemons:[]
+        pokemons:[],
+        id:""
     }
 
     async componentWillMount(){
@@ -16,12 +17,15 @@ class MyPokemons extends Component{
 
   
 
-    handlerDelete = async (id) => {
-        try{
-            await apiPokedex.delete('/pokemons/', { id })
-        } catch (err){
-            console.log(err);
-        }
+    handlerDelete = async (e) => {
+        e.preventDefault();
+        const { id } = this.state
+        alert(id);
+        // try{
+        //     await apiPokedex.delete('/pokemons/', { id })
+        // } catch (err){
+        //     console.log(err);
+        // }
     }
     
     render(){
@@ -37,11 +41,11 @@ class MyPokemons extends Component{
                         {console.log(pokemons)}
                         {pokemons.map((p) => 
                             <div className='card-pokemon'>
-                                <h3>{p.name}</h3>
+                                <h3>{p.name} <input type='hidden' value={p._id} onChange={e => this.setState({ id: e.target.value })} /></h3>
                                 <p>Geração: {p.generation}</p>
                                 <p>Tipo: {JSON.stringify(p.types)}</p>
                                 <p>Quant.: {p.baseAttack}</p>
-                                <button onClick={this.handlerDelete(p._id)}>Apagar</button>
+                                <button onClick={this.handlerDelete}>Apagar</button>
                             </div>
                         )}
                     </div>

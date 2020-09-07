@@ -19,11 +19,9 @@ class Dashboard extends Component{
     //     logout();
     // }
 
-    handleCapture = async (name, generation, type, baseAttack) => {
+    handleCapture = async (number, name, generation, type, baseAttack) => {
         try{
-            const pokemon = await apiPokedex.post('pokemons/create', { name, generation, type, baseAttack });
-            console.log(pokemon);
-            alert('Cadastrado com sucesso!');
+            const pokemon = await apiPokedex.post('pokemons/create', { number, name, generation, type, baseAttack });
           } catch (err){
             console.log(err);
             this.setState({ error: "Erro ao cadastrar usuário!" });
@@ -52,7 +50,7 @@ class Dashboard extends Component{
                                 <p>Geração: {p.Generation}</p>
                                 <p>Tipo: {JSON.stringify(p.Types)}</p>
                                 <p>Quant.: {p['Base Attack']}</p>
-                                <button onClick={ e => this.handleCapture(p.Name, p.Generation, p.Types, p['Base Attack'])}>Capturar</button>
+                                <button onClick={ e => this.handleCapture(p.Number, p.Name, p.Generation, p.Types, p['Base Attack'])}>Capturar</button>
                             </div>
                         )}
                     </div>

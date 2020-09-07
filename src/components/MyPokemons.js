@@ -14,30 +14,21 @@ class MyPokemons extends Component{
         this.setState({ pokemons: response.data.pokemons });
     }
 
-  
-
-    handlerDelete = async (e) => {
-        e.preventDefault();
-        const { id } = this.state
-        alert(id);
-        // try{
-        //     await apiPokedex.delete('/pokemons/', { id })
-        // } catch (err){
-        //     console.log(err);
-        // }
+    handlerExcluir = async (id, pokemon) =>{
+        if(window.confirm('Deseja excluir o ' + pokemon + '?'))
+        await apiPokedex.delete('/pokemons/' + id);     
     }
 
-    handlerExcluir = async (id) =>{
-        //try{
-            await apiPokedex.delete('/pokemons/' + id);
-            console.log('Olá mundo');
-        //} catch (err){
-            //console.log(err);
-        //}
-    }
-    
     render(){
         const { pokemons } = this.state;
+        const deleteTodos = () =>{
+            if(window.confirm("Deseja excluir todos os pokemons?")){
+                pokemons.map(async(p) =>
+                    //console.log(p._id)
+                    await apiPokedex.delete('/pokemons/' + p._id)
+                )
+            }
+        }
         return(
             <div className='corpo-dashboard'>
                 <div className='side-nav'>
@@ -45,15 +36,19 @@ class MyPokemons extends Component{
                 </div>
                 <div className='corpo-right'>
                     <h1>Minha Pokebola</h1>
+                    <p><button className='btn-secundary' onClick={deleteTodos}>Excluir todos</button></p>
                     <div className='listaPokemons'>
-                        {console.log(pokemons)}
+                        {/* {console.log(pokemons)} */}
                         {pokemons.map((p) => 
                             <div className='card-pokemon'>
-                                <h3>{p.name} <input type='hidden' value={p._id} id={p._id} /></h3>
+                                <h3>{p.name}</h3>
+                                <div className='avatar-pokemon'>
+                                    <img src={`https://raw.githubusercontent.com/alexandreservian/react-table-example-pokemon/master/public/assets/thumbnails/${p.number}.png`}/>
+                                </div>
                                 <p>Geração: {p.generation}</p>
                                 <p>Tipo: {JSON.stringify(p.types)}</p>
                                 <p>Quant.: {p.baseAttack}</p>
-                                <button onClick={ e => this.handlerExcluir(p._id)}>Apagar</button>
+                                <button onClick={ e => this.handlerExcluir(p._id, p.name)}>Apagar</button>
                             </div>
                         )}
                     </div>

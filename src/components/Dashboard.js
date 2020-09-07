@@ -52,7 +52,7 @@ class Dashboard extends Component{
                                 <p>Geração: {p.Generation}</p>
                                 <p>Tipo: {JSON.stringify(p.Types)}</p>
                                 <p>Quant.: {p['Base Attack']}</p>
-                                <button>Capturar</button>
+                                <button onClick={ e => this.handleCapture(p.Name, p.Generation, p.Types, p['Base Attack'])}>Capturar</button>
                             </div>
                         )}
                     </div>

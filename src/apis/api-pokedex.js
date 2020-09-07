@@ -6,7 +6,6 @@ const uri = 'https://pokedexback.herokuapp.com';
 const apiPokedex = axios.create({
     baseURL: uri,
 });
-
 apiPokedex.interceptors.request.use(async config => {
   const token = getToken();
   if (token) {
@@ -14,5 +13,4 @@ apiPokedex.interceptors.request.use(async config => {
   }
   return config;
 });
-
 export default apiPokedex;

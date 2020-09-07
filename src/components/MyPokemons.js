@@ -10,7 +10,7 @@ class MyPokemons extends Component{
     }
 
     async componentWillMount(){
-        const response = await apiPokedex.get('/pokemons');
+        const response = await apiPokedex.get('/pokemons/usuario');
         this.setState({ pokemons: response.data.pokemons });
     }
 

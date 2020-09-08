@@ -269,3 +269,87 @@
     border-left: 5px solid #0578d6;
     box-shadow: 0 0 10px #adbece;
 }
+
+@media screen and (max-width: 1024px){
+    .auth2factor-login{
+        width: 60vw;
+    }
+    .login{
+        width: 60vw;
+    }
+    .cadastro{
+        width: 60vw;
+    }
+
+    .input-formt{
+        width: 40vw;
+    }
+
+    .card-pokemon{
+        width: 25vw;
+    }
+    .card-pokemon button{
+        width: 25vw;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .card-pokemon{
+        width: 35vw;
+    }
+    .card-pokemon button{
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .side-nav{
+        width: 25vw;
+    }
+    .corpo-right{
+        width: 75vw;
+    }
+    .listaPokemons{
+        width: 70vw;
+    }
+    .logo{
+        width: 24vw;
+    }
+    .nav-list li a{
+        width: 24vw;
+    }
+    .card-pokemon{
+        width: 45vw;
+    }
+    .card-pokemon button{
+        width: 45vw;
+    }
+    .auth2factor-login{
+        width: 97vw;
+    }
+    .login{
+        width: 97vw;
+    }
+    .cadastro{
+        width: 97vw;
+    }
+    .input-formt{
+        width: 85vw;
+    }
+    .btn-primary{
+        width: 85vw;
+    }
+    .btn-pegue-seu{
+        width: 85vw;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .card-pokemon{
+        width: 65vw;
+    }
+    .card-pokemon button{
+        width: 65vw;
+    }
+    
+}

@@ -57,12 +57,12 @@ class Home extends Component{
   };
   handlerVerification = async e => {
     e.preventDefault();
-    const { secret, token } = this.state;
+    const { secret, token, email } = this.state;
     if(!token){
       this.setState({ error: 'Informe mº do token'});
     } else {
       try{
-        const verificacao = await apiPokedex.post('auth/verify', { secret, token });
+        const verificacao = await apiPokedex.post('auth/verify', { secret, token, email });
         console.log(verificacao);
         login(verificacao.data.token);
         this.props.history.push("/dashboard");

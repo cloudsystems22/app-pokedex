@@ -135,14 +135,7 @@ class Home extends Component{
   }
   
   render(){
-    const registrar = async () => {
-      let usuario = { name:"David Fico", email:"davidfico22@gmail.com", password:"1234" }
-      //usuario = JSON.stringify(usuario);
-      const registro = await apiPokedex.post('auth/register', usuario);
-      console.log(registro);
-      this.setState({ usuario: registro.data });
-    }
-      
+          
     return(
       <div className='fundo-pokemon'>
         <button className='btn-pegue-seu' onClick={this.handlerAuth2factor}>Pegue o seu!</button>
@@ -163,7 +156,7 @@ class Home extends Component{
                   <img id='qrcodeAuth' src=''/>
                   <p>
                     <input className='input-formt' placeholder='Nº Token 000 000' onChange={e => this.setState({ token: e.target.value})}/>
-                    <input type='hidden' id='inputSecret' onChange={e => this.setState({ secret: e.target.value })}/>
+                    <input type='text' id='inputSecret' onChange={e => this.setState({ secret: e.target.value })}/>
                   </p>
                   <button className='btn-primary' id='btnEntrar' type="submit">Entrar</button>
                 </div>
